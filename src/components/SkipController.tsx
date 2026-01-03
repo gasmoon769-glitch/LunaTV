@@ -371,7 +371,7 @@ export default function SkipController({
         // 🔥 优化：对于短视频，智能调整片头检测范围
         // 如果视频总长度小于 5 分钟（300秒），不启用默认片头检测
         // 避免在短视频中频繁触发片头跳过
-        const isShortVideo = duration > 0 && duration < 300; // 5分钟以下算短视频
+        const isShortVideo = duration > 0 && duration < 30000; // 5分钟以下算短视频
         const shouldEnableOpening = openingStart < openingEnd && (!isShortVideo || openingEnd < duration * 0.3);
 
         if (shouldEnableOpening) {
